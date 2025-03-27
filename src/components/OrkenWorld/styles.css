@@ -1,0 +1,27 @@
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150% !important;
+    height: 150% !important;
+}
+
+canvas.outline-layer {
+    z-index: 1;
+}
+
+canvas.fill-layer {
+    z-index: 3;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}

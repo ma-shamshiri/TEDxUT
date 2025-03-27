@@ -1,0 +1,39 @@
+@media (max-width: 576px) {
+  /* Styles for extra small screens (xs) */
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+  /* Styles for small screens (sm) */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Styles for medium screens (md) */
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Styles for large screens (lg) */
+}
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  /* Styles for extra large screens (xl) */
+}
+
+@media (min-width: 1600px) {
+  /* Styles for xx-large screens (xxl) */
+}
+
+/* Custom breakpoints */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Styles for tablets */
+}
+
+@media (orientation: landscape) {
+  /* Styles for landscape orientation */
+}
+
+xs  -->   576px  > ...
+sm  -->   577px  < ... < 767px
+md  -->   768px  < ... < 991px
+lg  -->   992px  < ... < 1199px
+xl  -->   1200px < ... < 1599px
+xxl -->   1600px < ...

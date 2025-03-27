@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="74x74" href="/assets/images/logo.png" />
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <!-- Consolidated Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Englebert&family=Acme&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Englebert&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Englebert&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Acme&family=Concert+One&family=Englebert&family=Risque&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Acme&family=Concert+One&family=Englebert&family=Jacques+Francois+Shadow&family=Risque&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Acme&family=Chicle&family=Concert+One&family=Englebert&family=Jacques+Francois+Shadow&family=New+Rocker&family=Risque&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Acme&family=Concert+One&family=Englebert&family=Jacques+Francois+Shadow&family=New+Rocker&family=Risque&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&family=Orbitron:wght@400..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet" />
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>TEDxUniversityofTehran</title>
+  <meta name="description"
+    content="Welcome to TEDxUniversityofTehran – where innovation meets tradition in the heart of Tehran. Join us for inspiring talks, bold ideas, and meaningful discussions." />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="TEDxUniversityofTehran" />
+  <meta property="og:description"
+    content="TEDxUniversityofTehran brings together bold thinkers and inspiring ideas in the city of Tehran. Join us for transformative talks and engaging discussions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://tedxiut.com/poster.jpg" />
+  <meta property="og:url" content="https://tedxiut.com" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://tedxiut.com" />
+
+  <!-- Structured Data for the Event -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "TEDxUniversityofTehran",
+    "startDate": "2025-04-10T10:00:00-08:00",
+    "endDate": "2025-04-10T15:00:00-08:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "University of Tehran",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Daneshgah e Sanati Hwy",
+        "addressLocality": "Tehran",
+        "addressRegion": "Khomeyni Shahr",
+        "postalCode": "PG9G+39R",
+        "addressCountry": "IR"
+      }
+    },
+    "image": "https://tedxiut.com/poster.jpg",
+    "description": "Join us for TEDxUniversityofTehran, where innovative ideas and inspiring talks ignite creativity in the heart of Tehran.",
+    "organizer": {
+      "@type": "Organization",
+      "name": "TEDxUniversityofTehran",
+      "url": "https://tedxut.com"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <!-- Main React App -->
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init();
+    });
+  </script>
+
+  <!-- Google Analytics (uncomment and configure when ready) -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-810XS46ZGT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-810XS46ZGT');
+  </script>
+
+</body>
+
+</html>
