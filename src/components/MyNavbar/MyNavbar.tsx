@@ -89,7 +89,7 @@ const MyNavbar: React.FC = () => {
                 {/* Mobile Navbar */}
                 <Flex
                     as="nav"
-                    display={{ base: "block", lg: "none" }}
+                    display={{ base: "none", lg: "none" }}
                     bg={useColorModeValue("#f1f1f1", "gray.900")}
                     width="100%"
                     height="7rem"
