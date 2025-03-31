@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
 
-const InfoCardGrid = () => {
+const FeatureCardGrid = () => {
     const { t, i18n } = useTranslation();
     const isLargeScreen = useBreakpointValue({ base: false, lg: true });
 
@@ -64,7 +64,7 @@ const InfoCardGrid = () => {
         <Box
             display="flex"
             justifyContent="center"
-            bg="#000"
+            bg="#fff"
             width="100%"
             paddingY={{ base: "3rem", lg: "6rem" }}
             overflow="hidden"
@@ -93,7 +93,7 @@ const InfoCardGrid = () => {
                             overflow="hidden"
                             borderRight={
                                 index < items.length - 1
-                                    ? `5px solid ${useColorModeValue("gray.600", "#000")}`
+                                    ? `5px solid ${useColorModeValue("gray.600", "#fff")}`
                                     : "none"
                             }
                             borderRadius="20px"
@@ -138,7 +138,7 @@ const InfoCardGrid = () => {
                                         className="img-overlay"
                                         position="absolute"
                                         bg={useColorModeValue("#dfdbd5", "#eb0028")}
-                                        opacity="0.4"
+                                        opacity="0.3"
                                         top="0"
                                         left="0"
                                         width="100%"
@@ -209,7 +209,7 @@ const InfoCardGrid = () => {
                             borderRadius="20px"
                             borderBottom={
                                 index < items.length - 1
-                                    ? `5px solid ${useColorModeValue("gray.600", "#000")}`
+                                    ? `5px solid ${useColorModeValue("gray.600", "#fff")}`
                                     : "none"
                             }
                             overflow="hidden"
@@ -302,4 +302,4 @@ const InfoCardGrid = () => {
     );
 };
 
-export default InfoCardGrid;
+export default FeatureCardGrid;

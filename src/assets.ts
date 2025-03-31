@@ -119,8 +119,54 @@ import black_card from "./assets/images/black_card.png";
 import info1 from "./assets/images/info1.webp";
 import info2 from "./assets/images/info2.webp";
 import info3 from "./assets/images/info3.webp";
+import homeSlider1 from "./assets/images/homeSlider1.jpg";
+import homeSlider2 from "./assets/images/homeSlider2.jpg";
+import homeSlider3 from "./assets/images/homeSlider3.png";
+import homeSlider4 from "./assets/images/homeSlider4.png";
+import homeSlider5 from "./assets/images/homeSlider5.png";
+import homeSlider6 from "./assets/images/homeSlider6.png";
+import homeSlider7 from "./assets/images/homeSlider7.png";
+import homeSlider8 from "./assets/images/homeSlider8.jpg";
+
+import pirouz_hanachi_NoBG from "./assets/images/pirouz_hanachi_NoBG.png";
+import hojat_mirzaee_NoBG from "./assets/images/hojat_mirzaee_NoBG.png";
+import mojtaba_jabbari_NoBG from "./assets/images/mojtaba_jabbari_NoBG.png";
+import maryam_jalali_NoBG from "./assets/images/maryam_jalali_NoBG.png";
+import nader_keshtkar_NoBG from "./assets/images/nader_keshtkar_NoBG.png";
+import hamidreza_pejman_NoBG from "./assets/images/hamidreza_pejman_NoBG.png";
+
+import speakerSlider1 from "./assets/images/speakerSlider1.png";
+import speakerSlider2 from "./assets/images/speakerSlider2.png";
+import speakerSlider3 from "./assets/images/speakerSlider3.jpg";
+import speakerSlider4 from "./assets/images/speakerSlider4.jpg";
+import speakerSlider5 from "./assets/images/speakerSlider5.png";
+import speakerSlider6 from "./assets/images/speakerSlider6.png";
+import speakerSlider7 from "./assets/images/speakerSlider7.png";
+import speakerSlider8 from "./assets/images/speakerSlider8.png";
 
 export {
+    speakerSlider1,
+    speakerSlider2,
+    speakerSlider3,
+    speakerSlider4,
+    speakerSlider5,
+    speakerSlider6,
+    speakerSlider7,
+    speakerSlider8,
+    pirouz_hanachi_NoBG,
+    hojat_mirzaee_NoBG,
+    mojtaba_jabbari_NoBG,
+    maryam_jalali_NoBG,
+    nader_keshtkar_NoBG,
+    hamidreza_pejman_NoBG,
+    homeSlider1,
+    homeSlider2,
+    homeSlider3,
+    homeSlider4,
+    homeSlider5,
+    homeSlider6,
+    homeSlider7,
+    homeSlider8,
     info1,
     info2,
     info3,

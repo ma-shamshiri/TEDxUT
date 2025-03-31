@@ -15,10 +15,14 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
+import emailjs from 'emailjs-com';
 
 /* Imports for background image and animation */
 import { info2 } from '../../assets';
 import LoginSuccessAnimation from '../Animations/LoginSuccessAnimation';
+import Typed from "react-typed";
+import { BsLinkedin } from 'react-icons/bs';
+import { FaXTwitter } from 'react-icons/fa6';
 
 /** Define all required fields for each step */
 interface FormData {
@@ -131,14 +135,52 @@ const FormSection: React.FC = () => {
     }
     setErrors([]);
 
-    // Show success toast
-    toast({
-      title: 'اطلاعات شما با موفقیت ثبت شد.',
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-      position: 'top',
-    });
+    // Build the email template parameters with a nice, structured format.
+    const templateParams = {
+      to_email: "ma.shamshiri@gmail.com", // destination email address
+      first_name: formData.firstName,
+      last_name: formData.lastName,
+      phone: formData.phone,
+      email: formData.email,
+      birth_date: formData.birthDate,
+      major_or_work: formData.majorOrWork,
+      address: formData.address,
+      about_you: formData.aboutYou,
+      social_link: formData.socialLink,
+      // Files (photo, resumePdf) are not sent via EmailJS by default.
+      // You can include links or file names if you upload them elsewhere.
+    };
+
+    // Use EmailJS to send the email. Replace the placeholders below.
+    emailjs
+      .send(
+        'service_18i7pzl', // Replace with your EmailJS service ID
+        'template_p5wd8lj', // Replace with your EmailJS template ID
+        templateParams,
+        '48IVT4rp3NjqHTdkV' // Replace with your EmailJS user ID
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          toast({
+            title: 'اطلاعات شما با موفقیت ثبت شد.',
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+            position: 'top',
+          });
+        },
+        (err) => {
+          console.error('FAILED...', err);
+          toast({
+            title: 'ارسال اطلاعات با مشکل مواجه شد.',
+            status: 'error',
+            duration: 3000,
+            isClosable: true,
+            position: 'top',
+          });
+        }
+      );
 
     // Trigger the animation for 1 second
     setShowAnimation(true);
@@ -207,12 +249,12 @@ const FormSection: React.FC = () => {
         )}
 
         <Box
-          width="50rem"
+          width="65rem"
           maxW="90%"
           bg="rgba(0, 0, 0, 0.8)"
           borderRadius="1rem"
           boxShadow="0 0 1rem rgba(0,0,0,0.5)"
-          p="3rem"
+          p="4rem"
         >
           {/* Title */}
           <Heading
@@ -254,7 +296,6 @@ const FormSection: React.FC = () => {
                 mb="1rem"
                 color="#EB0028"
                 fontSize="1.6rem"
-
               >
                 مشکلی در ثبت نام شما رخ داده است. لطفا فیلدهای زیر را مرور کنید.
               </Text>

@@ -3,6 +3,7 @@ import {
     aminBG,
     black_card,
     event2024,
+    homeSlider3,
     info1,
     info2,
     info3,
@@ -44,7 +45,7 @@ export const items: Item[] = [
     // ======================== Mohammaderfan Mohit ========================
     {
         id: 3,
-        imageSrc: info3,
+        imageSrc: homeSlider3,
         profileSrc: "mohammaderfan-mohit",
         firstName: "erfan",
         lastName: "mohit",

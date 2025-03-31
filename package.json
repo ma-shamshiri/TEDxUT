@@ -24,6 +24,7 @@
     "aos": "^2.3.4",
     "autoprefixer": "^10.4.19",
     "bootstrap": "^5.2.3",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^10.16.1",
     "gsap": "^3.12.5",
     "i18next": "^23.7.14",

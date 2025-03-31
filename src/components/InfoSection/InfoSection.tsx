@@ -31,7 +31,7 @@ const InfoSection: React.FC = () => {
                     color="#EB0028"
                     mb={{ base: 8, md: 12 }}
                 >
-                    درباره تد، تداِکس و تداِکس دانشگاه تهران
+                    <span style={{ color: "#fff" }}>درباره</span> تد، تداِکس و تداِکس <span style={{ color: "#fff" }}>دانشگاه تهران</span>
                 </Heading>
 
                 <SimpleGrid
@@ -51,12 +51,11 @@ const InfoSection: React.FC = () => {
                             overflow="hidden"
                             // clipPath="polygon(0 0, 100% 0, 100% 85%, 0 100%)"
                             transition="all 0.1s ease-in-out"
-                            _hover={{
-                                /* Soft shadow & subtle gradient on hover, no scale or red border */
-                                boxShadow: '0 8px 20px rgba(235, 0, 40, 0.2)',
-                                background:
-                                    'linear-gradient(135deg, rgba(235, 0, 40, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%)',
-                            }}
+                            // _hover={{
+                            //     boxShadow: '0 8px 20px rgba(235, 0, 40, 0.2)',
+                            //     background:
+                            //         'linear-gradient(135deg, rgba(235, 0, 40, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%)',
+                            // }}
                         >
                             {/* Soft glow behind the icon */}
                             <Box

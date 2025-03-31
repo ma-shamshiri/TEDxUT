@@ -120,10 +120,29 @@ const HeroSection: React.FC = () => {
         width="full"
         height="full"
         pointerEvents="none"
-        // Slightly narrower black edges so more of the video is visible
         bgGradient="linear(to-r, black 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, black 100%)"
         zIndex={-1}
       />
+
+      {/* WHITE WAVE CURVE AT BOTTOM */}
+      {/* <Box
+        position="absolute"
+        bottom="0"
+        left="0"
+        w="100%"
+        lineHeight="0"
+        zIndex={-1}
+      >
+        <svg
+          viewBox={"0 0 1440 210"}
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#fff"
+            d="M0,160 C360,0 1080,0 1440,160 L1440,320 L0,320 Z"
+          />
+        </svg>
+      </Box> */}
 
       {/* Sound Toggle Button (top-right) */}
       <IconButton
@@ -137,7 +156,6 @@ const HeroSection: React.FC = () => {
         bg="rgba(0, 0, 0, 0.6)"
         color="red"
         _hover={{ bg: 'rgba(0, 0, 0, 0.8)' }}
-        // size="10rem"
         fontSize="4rem"
       />
 
@@ -167,16 +185,11 @@ const HeroSection: React.FC = () => {
           color="#FFF"
         >
           We&apos;re not just a{' '}
-          {/* <Box as="span" color="#EB0028">
-            University
-          </Box> */}
-
           <Box position="relative" display="inline-block" color="#EB0028">
             {/* Invisible placeholder to reserve width */}
             <Box visibility="hidden" position="absolute" whiteSpace="nowrap">
               University
             </Box>
-
             {/* Actual content */}
             <Text as="span">U</Text>
             <Typed
@@ -188,18 +201,12 @@ const HeroSection: React.FC = () => {
               showCursor={false}
             />
           </Box>
-
           , we&apos;re a collection of{' '}
-          {/* <Box as="span" color="#EB0028">
-            minds
-          </Box> */}
-
           <Box position="relative" display="inline-block" color="#EB0028">
             {/* Invisible placeholder to reserve width */}
             <Box visibility="hidden" position="absolute" whiteSpace="nowrap">
               Minds
             </Box>
-
             {/* Actual content */}
             <Text as="span">M</Text>
             <Typed
@@ -291,14 +298,15 @@ const HeroSection: React.FC = () => {
           </Box>
         </HStack>
 
-        {/* Scroll Down Indicator (optional) */}
-        {/* <Box
+        {/* Optional Scroll Down Indicator
+        <Box
           animation={bounceAnimation}
           cursor="pointer"
-          display={{ base: 'none', md: 'block' }} // Hide on mobile if desired
+          display={{ base: 'none', md: 'block' }}
         >
           <Icon as={FaArrowDown} boxSize={10} color="#FFF" />
-        </Box> */}
+        </Box>
+        */}
       </Box>
     </Box>
   );

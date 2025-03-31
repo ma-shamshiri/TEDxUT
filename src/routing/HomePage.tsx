@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { Flex, SimpleGrid, useBreakpointValue } from "@chakra-ui/react";
 import AboutSection from "../components/AboutSection";
 import BlockHomeEvent from "../components/BlockHomeEvent";
 import FooterSection from "../components/FooterSection";
@@ -9,7 +9,12 @@ import MyNavbar from "../components/MyNavbar";
 import TeamSection from "../components/TeamSection";
 import InfoSection from "../components/InfoSection";
 import FormSection from "../components/FormSection";
-import InfoCardGrid from "../components/InfoCard";
+import EventGallery from "../components/EventGallery";
+import FeatureCardGrid from "../components/FeatureCardGrid";
+import SliderImage from "../components/SliderImage";
+import { amin, welcome } from "../assets";
+import LectureVideoSection from "../components/LectureVideoSection";
+import VideoGallery from "../components/VideoGallery";
 
 const HomePage: React.FC = () => {
   const [boxLoaded, setBoxLoaded] = useState(false);
@@ -35,8 +40,11 @@ const HomePage: React.FC = () => {
       >
         <MyNavbar />
         <HeroSection />
-        <InfoCardGrid />
+        <FeatureCardGrid />
         <InfoSection />
+        <EventGallery />
+        <VideoGallery />
+        {/* <SliderImage /> */}
         <FormSection />
         <FooterSection />
       </motion.div>

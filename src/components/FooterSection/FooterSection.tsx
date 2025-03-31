@@ -32,7 +32,7 @@ const FooterSection: React.FC = () => {
     <Box
       as="footer"
       position="relative"
-      bg="#e62b1e"
+      bg="#CB0000"
       color="white"
       paddingY={{ base: '4rem', lg: "8rem" }}
       overflow="hidden"
