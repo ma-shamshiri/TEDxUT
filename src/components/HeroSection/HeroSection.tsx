@@ -53,6 +53,9 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ onPlayerReady, isMuted }) => {
   const videoRef = useRef<HTMLIFrameElement>(null);
 
+  // Track whether the Vimeo iframe is fully loaded
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+
   // Honor user preference for reduced motion
   const prefersReducedMotion = usePrefersReducedMotion();
   const fadeInUpAnimation = prefersReducedMotion ? undefined : `${fadeInUp} 1s ease-in-out forwards`;
@@ -65,6 +68,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onPlayerReady, isMuted }) => 
     if (videoRef.current) {
       const vimeoPlayer = new Player(videoRef.current);
       vimeoPlayer.setMuted(isMuted);
+
+      // Once the video is fully loaded, remove the overlay & show the iframe
+      vimeoPlayer.on('loaded', () => {
+        setIframeLoaded(true);
+      });
+
       onPlayerReady(vimeoPlayer);
     }
   }, [videoRef, onPlayerReady, isMuted]);
@@ -78,6 +87,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onPlayerReady, isMuted }) => 
       h={{ base: 'auto', md: '100vh' }}
       overflow="hidden"
     >
+      {/* BLACK OVERLAY TO HIDE ANY FLASH BEFORE VIDEO LOADS */}
+      {!iframeLoaded && (
+        <Box
+          position="fixed"
+          top="0"
+          left="0"
+          width="100%"
+          height="100%"
+          bg="#000"
+          zIndex={9999}
+        />
+      )}
+
       {/* Background Video */}
       <Box
         position="fixed"
@@ -91,7 +113,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onPlayerReady, isMuted }) => 
         <Box
           as="iframe"
           ref={videoRef}
-          src="https://player.vimeo.com/video/1072637809?autoplay=1&muted=1&background=1&loop=1"
+          // Add color=000000&transparent=0 to try forcing black background
+          src="https://player.vimeo.com/video/1072637809?autoplay=1&muted=1&background=1&loop=1&color=000000&transparent=0"
           title="Vimeo Background"
           allow="autoplay; fullscreen"
           allowFullScreen
@@ -104,6 +127,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onPlayerReady, isMuted }) => 
             height: '100vh',
             transform: 'translate(-50%, -50%)',
             pointerEvents: 'none', // So content over it is clickable
+            display: iframeLoaded ? 'block' : 'none', // Hide until loaded
+            backgroundColor: '#000', // Extra measure for black
           }}
         />
       </Box>
@@ -333,8 +358,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onPlayerReady, isMuted }) => 
                   "0px 8px 14px rgba(0, 0, 0, 0.3), 0px -8px 14px rgba(0, 0, 0, 0.3)",
               }}
               transition="background-color 0.25s ease-out, border 0.25s ease-out, box-shadow 0.25s ease"
-            // onMouseEnter={handleHoverButton}
-            // onMouseLeave={handleUnHoverButton}
             >
               ثبت نام داوطلب
             </Button>
