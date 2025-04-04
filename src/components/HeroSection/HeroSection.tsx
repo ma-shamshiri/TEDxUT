@@ -10,17 +10,21 @@ import {
   usePrefersReducedMotion,
   Text,
   useBreakpointValue,
+  useColorModeValue,
+  Button,
 } from '@chakra-ui/react';
 import {
   FaArrowDown,
   FaVolumeMute,
   FaVolumeUp,
   FaInstagram,
+  FaTelegramPlane,
 } from 'react-icons/fa';
 import { welcome } from '../../assets'; // Your MP4 file import
 import Typed from "react-typed";
 import { BsLinkedin } from 'react-icons/bs';
-import { FaXTwitter } from 'react-icons/fa6';
+// import { FaXTwitter } from 'react-icons/fa6';
+import { Link as ScrollLink } from 'react-scroll';
 
 /**
  * Keyframes for text fade/slide and arrow bounce
@@ -66,6 +70,19 @@ const HeroSection: React.FC = () => {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
     }
+  };
+
+  const buttonHoverTextColor = useColorModeValue("#FF0000", "#FF0000");
+  const buttonHoverBorderColor = useColorModeValue("#FF0000", "#FF0000");
+
+  const [isHoveredButton, setIsHoveredButton] = useState(false);
+
+  const handleHoverButton = () => {
+    setIsHoveredButton(true);
+  };
+
+  const handleUnHoverButton = () => {
+    setIsHoveredButton(false);
   };
 
   return (
@@ -175,6 +192,49 @@ const HeroSection: React.FC = () => {
         animation={fadeInUpAnimation}
         color="#FFF"
       >
+
+        <Box
+          position="absolute"
+          display={{ base: "none", lg: "block" }}
+          transform="translate(-50%, -50%)"
+          bottom={20}
+          left={"50%"}
+        >
+          <ScrollLink to="form-section" smooth={true} duration={500}>
+            <Button
+              border="2px solid #CB0000"
+              borderRadius="10px"
+              cursor="pointer"
+              fontSize={{ base: "1.4rem", lg: "2rem" }}
+              fontFamily={"'Rubik', sans-serif"}
+              dir={"rtl"}
+              padding={{ base: "1.5rem", lg: "2rem" }}
+              textAlign="center"
+              whiteSpace="nowrap"
+              bg="#CB0000"
+              color="#fff"
+              boxShadow="0px 6px 10px rgba(0, 0, 0, 0.2), 0px -6px 10px rgba(0, 0, 0, 0.2)"
+              display="inline-block"
+              width={{ base: "14rem", lg: "23rem" }}
+              height={{ base: "6rem", lg: "8rem" }}
+              _hover={{
+                border: "0.2rem solid",
+                borderColor: buttonHoverBorderColor,
+                bg: "transparent",
+                color: buttonHoverTextColor,
+                boxShadow:
+                  "0px 8px 14px rgba(0, 0, 0, 0.3), 0px -8px 14px rgba(0, 0, 0, 0.3)",
+              }}
+              transition="background-color 0.25s ease-out, border 0.25s ease-out, box-shadow 0.25s ease"
+              onMouseEnter={handleHoverButton}
+              onMouseLeave={handleUnHoverButton}
+            >
+              ثبت نام داوطلب
+            </Button>
+          </ScrollLink>
+        </Box>
+
+
         {/* Main Heading */}
         <Heading
           as="h1"
@@ -274,15 +334,15 @@ const HeroSection: React.FC = () => {
 
           <Box
             as="a"
-            href="https://twitter.com"
+            href="https://t.me/TEDx_UniversityOfTehran"
             target="_blank"
             rel="noopener noreferrer"
           >
             <IconButton
-              aria-label="twitter"
+              aria-label="telegram"
               variant="ghost"
               size="xl"
-              icon={<FaXTwitter size={iconSize} />}
+              icon={<FaTelegramPlane size={iconSize} />}
               color="#FFF"
               bg="rgba(255, 255, 255, 0.2)"
               _hover={{

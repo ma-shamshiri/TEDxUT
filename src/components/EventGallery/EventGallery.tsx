@@ -128,7 +128,11 @@ const EventGallery: React.FC = () => {
                 تصاویری از مسیر ما تا امروز
             </Heading>
 
-            <Box position="relative" overflow="hidden" px={{ base: "1rem", md: "2rem", lg: "4rem" }}>
+            <Box
+                position="relative"
+                px={{ base: "1rem", md: "2rem", lg: "4rem" }}
+                overflow="hidden"
+            >
                 {/* Horizontal Slider */}
                 <MotionFlex
                     whiteSpace="nowrap"

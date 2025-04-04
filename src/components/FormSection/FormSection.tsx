@@ -207,6 +207,7 @@ const FormSection: React.FC = () => {
 
   return (
     <Box
+      id='form-section'
       as="section"
       position="relative"
       width="100%"

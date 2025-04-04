@@ -15,6 +15,7 @@ import SliderImage from "../components/SliderImage";
 import { amin, welcome } from "../assets";
 import LectureVideoSection from "../components/LectureVideoSection";
 import VideoGallery from "../components/VideoGallery";
+import ScrollingLink from "../components/ScrollingLink/ScrollingLink";
 
 const HomePage: React.FC = () => {
   const [boxLoaded, setBoxLoaded] = useState(false);
@@ -40,6 +41,7 @@ const HomePage: React.FC = () => {
       >
         <MyNavbar />
         <HeroSection />
+        <ScrollingLink />
         <FeatureCardGrid />
         <InfoSection />
         <EventGallery />
