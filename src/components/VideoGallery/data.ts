@@ -6,30 +6,30 @@ export interface LectureVideo {
 export const lectureVideos: LectureVideo[] = [
     {
         id: 1,
-        videoEmbedUrl: "1071159122",
+        videoEmbedUrl: "1072577550",
     },
     {
         id: 2,
-        videoEmbedUrl: "1071159173",
+        videoEmbedUrl: "1072577258",
     },
     {
         id: 3,
-        videoEmbedUrl: "1071159247",
+        videoEmbedUrl: "1072576977",
     },
     {
         id: 4,
-        videoEmbedUrl: "1071159320",
+        videoEmbedUrl: "1072576498",
     },
     {
         id: 5,
-        videoEmbedUrl: "1071159387",
+        videoEmbedUrl: "1072576065",
     },
     {
         id: 6,
-        videoEmbedUrl: "1071159407",
+        videoEmbedUrl: "1072576679",
     },
     {
         id: 7,
-        videoEmbedUrl: "1071200977?h=5aaac9fabd",
+        videoEmbedUrl: "1072577078",
     },
 ];

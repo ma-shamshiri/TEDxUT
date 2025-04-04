@@ -27,7 +27,7 @@ const AntoniaMacris: React.FC = () => {
                 transition={{ duration: 1, ease: "easeInOut" }}
                 onAnimationComplete={handleBoxLoad}
             >
-                <MyNavbar />
+                {/* <MyNavbar /> */}
                 <BlockSpeakerProfiles
                     name="Antonia Macris"
                     title={t("antoniaMacrisTitle")}

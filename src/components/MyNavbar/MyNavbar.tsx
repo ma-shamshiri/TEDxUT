@@ -10,34 +10,26 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { tedxBlack, tedxWhite } from "../../assets";
 import { useTranslation } from "react-i18next";
-import ColorModeSwitch from "../Navigationbar/ColorModeSwitch";
-import LanguageSwitcher from "../Navigationbar/LanguageSwitcher";
-import MenuToggle from "../MenuToggle/MenuToggle";
-import SliderText from "../SliderText";
-import LanguageSwitcher2 from "../Navigationbar/LanguageSwitcher2";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
+import { IoVolumeMuteOutline } from "react-icons/io5";
+import { VscUnmute } from "react-icons/vsc";
 
-const MotionBox = motion(Box);
+interface MyNavbarProps {
+    onToggleMute: () => void;
+    isMuted: boolean;
+}
 
-const MyNavbar: React.FC = () => {
+const MotionIcon = motion.div;
+
+const MyNavbar: React.FC<MyNavbarProps> = ({ onToggleMute, isMuted }) => {
     const { t } = useTranslation();
 
     const { colorMode } = useColorMode();
 
-    const isLargeScreen = useBreakpointValue({ base: false, md: true });
-
     const tedxImg = colorMode === "dark" ? tedxWhite : tedxBlack;
-
-    const menuHeightValue = useBreakpointValue({ base: "225px", lg: "80px" });
-
-    const instagramIconSize = useBreakpointValue({ base: "30px", md: "30px", lg: "28px" });
-    const instagramIconBoxSize = useBreakpointValue({ base: "40px", md: "40px", lg: "35px" });
-
-    const linkedinIconSize = useBreakpointValue({ base: "29px", md: "30px", lg: "24px" });
-    const linkedinIconBoxSize = useBreakpointValue({ base: "40px", md: "40px", lg: "35px" });
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -73,8 +65,31 @@ const MyNavbar: React.FC = () => {
                 zIndex="999"
             >
                 <Link as={RouterLink} to="/" cursor="pointer">
-                    <Flex justifyContent="center" alignItems="center">
-                        <Image src={tedxImg} width={{ base: "90%", md: "60%" }} />
+                    <Flex justifyContent="space-between" alignItems="center" paddingX="1rem">
+                        <Image src={tedxImg} width={{ base: "70%", md: "60%" }} />
+                        <IconButton
+                            aria-label="Toggle sound"
+                            onClick={onToggleMute}
+                            bg="rgba(0, 0, 0, 0.6)"
+                            color="#fff"
+                            fontSize="2.3rem"
+                            zIndex={10}
+                            _hover={{ bg: "transparent" }}
+                            icon={
+                                <AnimatePresence mode="wait">
+                                    <MotionIcon
+                                        key={isMuted ? "muted" : "unmuted"}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        transition={{ duration: 0.3 }}
+                                        whileHover={{ color: "red" }}
+                                    >
+                                        {isMuted ? <IoVolumeMuteOutline /> : <VscUnmute />}
+                                    </MotionIcon>
+                                </AnimatePresence>
+                            }
+                        />
                     </Flex>
                 </Link>
             </Box>
@@ -147,7 +162,7 @@ const MyNavbar: React.FC = () => {
                     <Flex
                         width="100%"
                         height="100%"
-                        justifyContent="flex-start"
+                        justifyContent="space-between"
                         alignItems="center"
                         paddingX="2rem"
                     >
@@ -161,7 +176,31 @@ const MyNavbar: React.FC = () => {
                                 <Image src={tedxImg} width={380} />
                             </Link>
                         </Flex>
-                        {/* <LanguageSwitcher2 /> */}
+
+                        {/* Sound Toggle Button (placed in navbar) */}
+                        <IconButton
+                            aria-label="Toggle sound"
+                            onClick={onToggleMute}
+                            bg="rgba(0, 0, 0, 0.6)"
+                            color="#fff"
+                            fontSize="2.5rem"
+                            zIndex={10}
+                            _hover={{ bg: "transparent" }}
+                            icon={
+                                <AnimatePresence mode="wait">
+                                    <MotionIcon
+                                        key={isMuted ? "muted" : "unmuted"}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        transition={{ duration: 0.3 }}
+                                        whileHover={{ color: "red" }}
+                                    >
+                                        {isMuted ? <IoVolumeMuteOutline /> : <VscUnmute />}
+                                    </MotionIcon>
+                                </AnimatePresence>
+                            }
+                        />
                     </Flex>
                 </Flex>
             </Box>

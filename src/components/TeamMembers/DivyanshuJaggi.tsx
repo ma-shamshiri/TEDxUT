@@ -24,7 +24,7 @@ const DivyanshuJaggi: React.FC = () => {
                 transition={{ duration: 1, ease: "easeInOut" }}
                 onAnimationComplete={handleBoxLoad}
             >
-                <MyNavbar />
+                {/* <MyNavbar /> */}
                 <BlockTeamProfiles
                     name="Divyanshu Jaggi"
                     title="Operations"

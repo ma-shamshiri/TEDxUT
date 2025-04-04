@@ -23,7 +23,7 @@ const EventPage: React.FC = () => {
         transition={{ duration: 1, ease: "easeInOut" }}
         onAnimationComplete={handleBoxLoad}
       >
-        <MyNavbar />
+        {/* <MyNavbar /> */}
         <BlockEvent />
         <BlockFooter />
       </motion.div>

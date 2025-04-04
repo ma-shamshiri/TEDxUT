@@ -3,8 +3,8 @@ import { Box, Button, useColorModeValue } from '@chakra-ui/react';
 import { Link as ScrollLink } from 'react-scroll';
 
 const ScrollingLink: React.FC = () => {
-    const buttonHoverTextColor = useColorModeValue("#FF0000", "#FF0000");
-    const buttonHoverBorderColor = useColorModeValue("#FF0000", "#FF0000");
+    const buttonHoverTextColor = useColorModeValue("#fff", "#fff");
+    const buttonHoverBorderColor = useColorModeValue("#fff", "#fff");
 
     const [isHoveredButton, setIsHoveredButton] = useState(false);
 
@@ -25,26 +25,26 @@ const ScrollingLink: React.FC = () => {
             alignItems="center"
             bg="#000"
             color="#FFF"
-            py={{ base: 16, md: 24 }}
+            py={{ base: 12, md: 24 }}
             overflow="hidden"
         >
             <ScrollLink to="form-section" smooth={true} duration={500}>
                 <Button
-                    border="2px solid #FF0000"
-                    borderRadius="10px"
+                    border="2px solid #CB0000"
+                    borderRadius="7px"
                     cursor="pointer"
-                    fontSize={{ base: "1.4rem", lg: "2rem" }}
+                    fontSize={{ base: "1.2rem", lg: "2rem" }}
                     fontFamily={"'Rubik', sans-serif"}
                     dir={"rtl"}
                     padding={{ base: "1.5rem", lg: "2rem" }}
                     textAlign="center"
                     whiteSpace="nowrap"
-                    bg="#FF0000"
+                    bg="#CB0000"
                     color="#fff"
                     boxShadow="0px 6px 10px rgba(0, 0, 0, 0.2), 0px -6px 10px rgba(0, 0, 0, 0.2)"
                     display="inline-block"
-                    width={{ base: "14rem", lg: "23rem" }}
-                    height={{ base: "6rem", lg: "8rem" }}
+                    width={{ base: "12rem", lg: "23rem" }}
+                    height={{ base: "5rem", lg: "8rem" }}
                     _hover={{
                         border: "0.2rem solid",
                         borderColor: buttonHoverBorderColor,

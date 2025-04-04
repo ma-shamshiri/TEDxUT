@@ -24,7 +24,7 @@ const MokshSood: React.FC = () => {
                 transition={{ duration: 1, ease: "easeInOut" }}
                 onAnimationComplete={handleBoxLoad}
             >
-                <MyNavbar />
+                {/* <MyNavbar /> */}
                 <BlockTeamProfiles
                     name="Moksh Sood"
                     title="Production"

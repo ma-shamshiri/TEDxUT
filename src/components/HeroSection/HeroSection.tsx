@@ -1,9 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
   Box,
   Heading,
-  IconButton,
-  Icon,
   HStack,
   Link,
   keyframes,
@@ -12,23 +10,18 @@ import {
   useBreakpointValue,
   useColorModeValue,
   Button,
+  IconButton,
 } from '@chakra-ui/react';
 import {
-  FaArrowDown,
-  FaVolumeMute,
-  FaVolumeUp,
   FaInstagram,
   FaTelegramPlane,
 } from 'react-icons/fa';
 import { welcome } from '../../assets'; // Your MP4 file import
 import Typed from "react-typed";
 import { BsLinkedin } from 'react-icons/bs';
-// import { FaXTwitter } from 'react-icons/fa6';
 import { Link as ScrollLink } from 'react-scroll';
+import Player from '@vimeo/player';
 
-/**
- * Keyframes for text fade/slide and arrow bounce
- */
 const fadeInUp = keyframes`
   0% {
     opacity: 0;
@@ -52,9 +45,13 @@ const bounce = keyframes`
   }
 `;
 
-const HeroSection: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
+interface HeroSectionProps {
+  onPlayerReady: (player: Player) => void;
+  isMuted: boolean;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ onPlayerReady, isMuted }) => {
+  const videoRef = useRef<HTMLIFrameElement>(null);
 
   // Honor user preference for reduced motion
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -64,26 +61,13 @@ const HeroSection: React.FC = () => {
   const iconSize = useBreakpointValue({ base: "2rem", lg: "2.5rem" });
   const iconBoxSize = useBreakpointValue({ base: "4rem", lg: "5rem" });
 
-  // Toggle mute/unmute
-  const handleToggleMute = () => {
-    setIsMuted(!isMuted);
+  useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
+      const vimeoPlayer = new Player(videoRef.current);
+      vimeoPlayer.setMuted(isMuted);
+      onPlayerReady(vimeoPlayer);
     }
-  };
-
-  const buttonHoverTextColor = useColorModeValue("#FF0000", "#FF0000");
-  const buttonHoverBorderColor = useColorModeValue("#FF0000", "#FF0000");
-
-  const [isHoveredButton, setIsHoveredButton] = useState(false);
-
-  const handleHoverButton = () => {
-    setIsHoveredButton(true);
-  };
-
-  const handleUnHoverButton = () => {
-    setIsHoveredButton(false);
-  };
+  }, [videoRef, onPlayerReady, isMuted]);
 
   return (
     <Box
@@ -96,23 +80,33 @@ const HeroSection: React.FC = () => {
     >
       {/* Background Video */}
       <Box
-        as="video"
-        ref={videoRef}
-        src={welcome}
-        autoPlay
-        loop
-        muted={isMuted}
-        playsInline
-        // Full width, responsive height
-        w="full"
-        h={{ base: 'auto', md: '100%' }}
-        // Preserve aspect ratio on mobile, cover on larger screens
-        objectFit={{ base: 'contain', md: 'cover' }}
-        position="absolute"
-        top={0}
-        left={0}
+        position="fixed"
+        top="0"
+        left="0"
+        width="100%"
+        height="100%"
         zIndex={-3}
-      />
+        overflow="hidden"
+      >
+        <Box
+          as="iframe"
+          ref={videoRef}
+          src="https://player.vimeo.com/video/1072637809?autoplay=1&muted=1&background=1&loop=1"
+          title="Vimeo Background"
+          allow="autoplay; fullscreen"
+          allowFullScreen
+          border="0"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: '177.77vh', // 100 * (16/9)
+            height: '100vh',
+            transform: 'translate(-50%, -50%)',
+            pointerEvents: 'none', // So content over it is clickable
+          }}
+        />
+      </Box>
 
       {/* Fallback Background Image (if video fails to load) */}
       <Box
@@ -161,20 +155,7 @@ const HeroSection: React.FC = () => {
         </svg>
       </Box> */}
 
-      {/* Sound Toggle Button (top-right) */}
-      <IconButton
-        aria-label="Toggle sound"
-        onClick={handleToggleMute}
-        icon={isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
-        position="absolute"
-        top="1rem"
-        right="1rem"
-        zIndex={10}
-        bg="rgba(0, 0, 0, 0.6)"
-        color="red"
-        _hover={{ bg: 'rgba(0, 0, 0, 0.8)' }}
-        fontSize="4rem"
-      />
+      {/* Sound Toggle Button is removed from HeroSection */}
 
       {/* Hero Content */}
       <Box
@@ -192,48 +173,6 @@ const HeroSection: React.FC = () => {
         animation={fadeInUpAnimation}
         color="#FFF"
       >
-
-        <Box
-          position="absolute"
-          display={{ base: "none", lg: "block" }}
-          transform="translate(-50%, -50%)"
-          bottom={20}
-          left={"50%"}
-        >
-          <ScrollLink to="form-section" smooth={true} duration={500}>
-            <Button
-              border="2px solid #CB0000"
-              borderRadius="10px"
-              cursor="pointer"
-              fontSize={{ base: "1.4rem", lg: "2rem" }}
-              fontFamily={"'Rubik', sans-serif"}
-              dir={"rtl"}
-              padding={{ base: "1.5rem", lg: "2rem" }}
-              textAlign="center"
-              whiteSpace="nowrap"
-              bg="#CB0000"
-              color="#fff"
-              boxShadow="0px 6px 10px rgba(0, 0, 0, 0.2), 0px -6px 10px rgba(0, 0, 0, 0.2)"
-              display="inline-block"
-              width={{ base: "14rem", lg: "23rem" }}
-              height={{ base: "6rem", lg: "8rem" }}
-              _hover={{
-                border: "0.2rem solid",
-                borderColor: buttonHoverBorderColor,
-                bg: "transparent",
-                color: buttonHoverTextColor,
-                boxShadow:
-                  "0px 8px 14px rgba(0, 0, 0, 0.3), 0px -8px 14px rgba(0, 0, 0, 0.3)",
-              }}
-              transition="background-color 0.25s ease-out, border 0.25s ease-out, box-shadow 0.25s ease"
-              onMouseEnter={handleHoverButton}
-              onMouseLeave={handleUnHoverButton}
-            >
-              ثبت نام داوطلب
-            </Button>
-          </ScrollLink>
-        </Box>
-
 
         {/* Main Heading */}
         <Heading
@@ -281,7 +220,10 @@ const HeroSection: React.FC = () => {
         </Heading>
 
         {/* Social Icons (larger & more eye-catching) */}
-        <HStack spacing={6} mb={8}>
+        <HStack
+          spacing={6}
+          marginBottom="8rem"
+        >
           <Box
             as="a"
             href="https://www.instagram.com/tedx.universityoftehran?igsh=MTFhNGJsaW52bnZiZQ=="
@@ -357,6 +299,47 @@ const HeroSection: React.FC = () => {
             />
           </Box>
         </HStack>
+
+        <Box
+          display={{ base: "none", lg: "flex" }}
+        >
+          <ScrollLink
+            to="form-section"
+            smooth={true}
+            duration={500}
+          >
+            <Button
+              border="2px solid #CB0000"
+              borderRadius="10px"
+              cursor="pointer"
+              fontSize={{ base: "1.4rem", lg: "2rem" }}
+              fontFamily={"'Rubik', sans-serif"}
+              dir={"rtl"}
+              padding={{ base: "1.5rem", lg: "2rem" }}
+              textAlign="center"
+              whiteSpace="nowrap"
+              bg="#CB0000"
+              color="#fff"
+              boxShadow="0px 6px 10px rgba(0, 0, 0, 0.2), 0px -6px 10px rgba(0, 0, 0, 0.2)"
+              display="inline-block"
+              width={{ base: "14rem", lg: "23rem" }}
+              height={{ base: "6rem", lg: "8rem" }}
+              _hover={{
+                border: "0.2rem solid",
+                borderColor: "#FF0000",
+                bg: "transparent",
+                color: "#FF0000",
+                boxShadow:
+                  "0px 8px 14px rgba(0, 0, 0, 0.3), 0px -8px 14px rgba(0, 0, 0, 0.3)",
+              }}
+              transition="background-color 0.25s ease-out, border 0.25s ease-out, box-shadow 0.25s ease"
+            // onMouseEnter={handleHoverButton}
+            // onMouseLeave={handleUnHoverButton}
+            >
+              ثبت نام داوطلب
+            </Button>
+          </ScrollLink>
+        </Box>
 
         {/* Optional Scroll Down Indicator
         <Box

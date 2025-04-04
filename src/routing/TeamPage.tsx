@@ -24,7 +24,7 @@ const TeamPage: React.FC = () => {
         transition={{ duration: 1, ease: "easeInOut" }}
         onAnimationComplete={handleBoxLoad}
       >
-        <MyNavbar />
+        {/* <MyNavbar /> */}
         <BlockTeamMembers />
         <FooterSection />
       </motion.div>

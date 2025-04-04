@@ -229,10 +229,23 @@ const FormSection: React.FC = () => {
         bgImage={`url(${info2})`}
         bgPos="center"
         bgSize="cover"
-        filter="blur(9px)"
-        zIndex={-1}
+        // filter="blur(8px)"
+        zIndex={-2}
       />
 
+      <Box
+        position="absolute"
+        top="0"
+        bg={"transparent"}
+        left="0"
+        width="100%"
+        height="100%"
+        bgImage={`url(${info2})`}
+        bgPos="center"
+        bgSize="cover"
+        filter="blur(8px)"
+        zIndex={-1}
+      />
       {/* Center the form container both horizontally and vertically */}
       <Flex
         justify="center"
@@ -252,7 +265,7 @@ const FormSection: React.FC = () => {
         <Box
           width="65rem"
           maxW="90%"
-          bg="rgba(0, 0, 0, 0.8)"
+          bg="rgba(0, 0, 0, 0.7)"
           borderRadius="1rem"
           boxShadow="0 0 1rem rgba(0,0,0,0.5)"
           p="4rem"
@@ -265,11 +278,11 @@ const FormSection: React.FC = () => {
             fontFamily={"'Rubik', sans-serif"}
             dir={"rtl"}
             lineHeight="1.5"
-            color="#EB0028"
+            color="#fff"
             textAlign="center"
             mb="2rem"
           >
-            ثبت نام داوطلب به همکاری در تداِکس ۲۰۲۵ دانشگاه تهران
+            ثبت نام داوطلب به همکاری در <span style={{color:"#EB0028"}}> تداِکس 2025 </span> دانشگاه تهران  
           </Heading>
 
           {/* Progress Bar */}
@@ -389,7 +402,7 @@ const FormSection: React.FC = () => {
                     </FormLabel>
                     <Input
                       type="tel"
-                      placeholder="مثال: 09123456789"
+                      placeholder="0 1 2 3 4 5 6 7 8 9"
                       fontSize="1.4rem"
                       bg="#2c2c2c"
                       border="1px solid #444"
@@ -400,7 +413,7 @@ const FormSection: React.FC = () => {
                         setFormData({ ...formData, phone: e.target.value })
                       }
                       fontFamily={"'Rubik', sans-serif"}
-                      dir={"rtl"}
+                      dir={"ltr"}
                     />
                   </FormControl>
 
@@ -427,7 +440,7 @@ const FormSection: React.FC = () => {
                         setFormData({ ...formData, email: e.target.value })
                       }
                       fontFamily={"'Rubik', sans-serif"}
-                      dir={"rtl"}
+                      dir={"ltr"}
                     />
                   </FormControl>
                 </Grid>
@@ -566,7 +579,7 @@ const FormSection: React.FC = () => {
                       setFormData({ ...formData, socialLink: e.target.value })
                     }
                     fontFamily={"'Rubik', sans-serif"}
-                    dir={"rtl"}
+                    dir={"ltr"}
                   />
                   <FormHelperText
                     color="gray.400"

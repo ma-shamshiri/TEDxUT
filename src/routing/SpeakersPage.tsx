@@ -26,7 +26,7 @@ const SpeakersPage: React.FC = () => {
         transition={{ duration: 1, ease: "easeInOut" }}
         onAnimationComplete={handleBoxLoad}
       >
-        <MyNavbar />
+        {/* <MyNavbar /> */}
         <BlockSpeakers />
         <BlockFooter />
       </motion.div>
