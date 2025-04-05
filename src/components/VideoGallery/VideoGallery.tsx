@@ -17,7 +17,7 @@ const VideoGallery: React.FC = () => {
         >
             <Heading
                 as="h2"
-                mb={{base:"3rem", lg:"8rem"}}
+                mb={{ base: "3rem", lg: "8rem" }}
                 fontSize={{ base: "3xl", md: "5xl" }}
                 fontWeight="bold"
                 fontFamily={"'Rubik', sans-serif"}
@@ -50,14 +50,14 @@ const VideoGallery: React.FC = () => {
                                 base: "",
                                 lg: isOffset ? "translateY(80px)" : "none",
                             }}
-                            transition="transform 0.3s ease"
-                            _hover={{
-                                transform: isOffset
-                                    ? "translateY(80px) scale(1.03)"
-                                    : "scale(1.03)",
-                            }}
+                            // transition="transform 0.3s ease"
+                            // _hover={{
+                            //     transform: isOffset
+                            //         ? "translateY(80px) scale(1.03)"
+                            //         : "scale(1.03)",
+                            // }}
                         >
-                            <LectureVideoSection videoEmbedUrl={video.videoEmbedUrl} />
+                            <LectureVideoSection videoUrl={video.videoUrl} imageUrl={video.imageUrl} />
                         </Box>
                     );
                 })}

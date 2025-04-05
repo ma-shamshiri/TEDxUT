@@ -144,7 +144,22 @@ import speakerSlider6 from "./assets/images/speakerSlider6.png";
 import speakerSlider7 from "./assets/images/speakerSlider7.png";
 import speakerSlider8 from "./assets/images/speakerSlider8.png";
 
+import hamidreza_pejman_cover from "./assets/images/hamidreza_pejman_cover.jpg";
+import hojjat_mirzaee_cover from "./assets/images/hojjat_mirzaee_cover.jpg";
+import hosna_esmailbeigi_cover from "./assets/images/hosna_esmailbeigi_cover.jpg";
+import maryam_jalali_cover from "./assets/images/maryam_jalali_cover.jpg";
+import mojtaba_jabbari_cover from "./assets/images/mojtaba_jabbari_cover.jpg";
+import nader_keshtkar_cover from "./assets/images/nader_keshtkar_cover.jpg";
+import pirouz_hanachi_cover from "./assets/images/pirouz_hanachi_cover.jpg";
+
 export {
+    hamidreza_pejman_cover,
+    hojjat_mirzaee_cover,
+    hosna_esmailbeigi_cover,
+    maryam_jalali_cover,
+    mojtaba_jabbari_cover,
+    nader_keshtkar_cover,
+    pirouz_hanachi_cover,
     speakerSlider1,
     speakerSlider2,
     speakerSlider3,

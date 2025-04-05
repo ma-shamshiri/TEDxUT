@@ -1,35 +1,45 @@
+import { hamidreza_pejman_cover, hojjat_mirzaee_cover, hosna_esmailbeigi_cover, maryam_jalali_cover, mojtaba_jabbari_cover, nader_keshtkar_cover, pirouz_hanachi_cover } from "../../assets";
+
 export interface LectureVideo {
     id: number;
-    videoEmbedUrl: string;
+    videoUrl: string;
+    imageUrl: string;
 }
 
 export const lectureVideos: LectureVideo[] = [
     {
         id: 1,
-        videoEmbedUrl: "1072577550",
+        videoUrl: "1072577550",
+        imageUrl: pirouz_hanachi_cover
     },
     {
         id: 2,
-        videoEmbedUrl: "1072577258",
+        videoUrl: "1072577258",
+        imageUrl: nader_keshtkar_cover
     },
     {
         id: 3,
-        videoEmbedUrl: "1072576977",
+        videoUrl: "1072576977",
+        imageUrl: maryam_jalali_cover
     },
     {
         id: 4,
-        videoEmbedUrl: "1072576498",
+        videoUrl: "1072576498",
+        imageUrl: hojjat_mirzaee_cover
     },
     {
         id: 5,
-        videoEmbedUrl: "1072576065",
+        videoUrl: "1072576065",
+        imageUrl: hamidreza_pejman_cover
     },
     {
         id: 6,
-        videoEmbedUrl: "1072576679",
+        videoUrl: "1072576679",
+        imageUrl: hosna_esmailbeigi_cover
     },
     {
         id: 7,
-        videoEmbedUrl: "1072577078",
+        videoUrl: "1072577078",
+        imageUrl: mojtaba_jabbari_cover
     },
 ];

@@ -57,7 +57,7 @@ const MyNavbar: React.FC<MyNavbarProps> = ({ onToggleMute, isMuted }) => {
     return (
         <>
             <Box
-                display={{ base: "block", lg: "none" }}
+                display={{ base: "none", lg: "none" }}
                 width="100%"
                 py="1.5rem"
                 px="1rem"
@@ -82,8 +82,8 @@ const MyNavbar: React.FC<MyNavbarProps> = ({ onToggleMute, isMuted }) => {
                                         initial={{ opacity: 0, scale: 0.8 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.8 }}
-                                        transition={{ duration: 0.3 }}
-                                        whileHover={{ color: "red" }}
+                                        transition={{ duration: 0.1 }}
+                                    // whileHover={{ scale:"1.2" }}
                                     >
                                         {isMuted ? <IoVolumeMuteOutline /> : <VscUnmute />}
                                     </MotionIcon>
@@ -104,13 +104,12 @@ const MyNavbar: React.FC<MyNavbarProps> = ({ onToggleMute, isMuted }) => {
                 {/* Mobile Navbar */}
                 <Flex
                     as="nav"
-                    display={{ base: "none", lg: "none" }}
-                    bg={useColorModeValue("#f1f1f1", "gray.900")}
+                    display={{ base: "block", lg: "none" }}
+                    bg={useColorModeValue("#000", "#000")}
                     width="100%"
                     height="7rem"
                     paddingX="0.6rem"
                     justify="space-between"
-                    position="relative"
                 >
                     <Flex
                         width="100%"
@@ -146,6 +145,30 @@ const MyNavbar: React.FC<MyNavbarProps> = ({ onToggleMute, isMuted }) => {
                             borderRadius="10px"
                             boxSize={linkedinIconBoxSize}
                         /> */}
+                        <Image src={tedxImg} width={{ base: "70%", md: "60%" }} />
+                        <IconButton
+                            aria-label="Toggle sound"
+                            onClick={onToggleMute}
+                            bg="rgba(0, 0, 0, 0.6)"
+                            color="#fff"
+                            fontSize="2.3rem"
+                            zIndex={10}
+                            _hover={{ bg: "transparent" }}
+                            icon={
+                                <AnimatePresence mode="wait">
+                                    <MotionIcon
+                                        key={isMuted ? "muted" : "unmuted"}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        transition={{ duration: 0.1 }}
+                                    // whileHover={{ scale:"1.2" }}
+                                    >
+                                        {isMuted ? <IoVolumeMuteOutline /> : <VscUnmute />}
+                                    </MotionIcon>
+                                </AnimatePresence>
+                            }
+                        />
                     </Flex>
                 </Flex>
 
@@ -193,8 +216,8 @@ const MyNavbar: React.FC<MyNavbarProps> = ({ onToggleMute, isMuted }) => {
                                         initial={{ opacity: 0, scale: 0.8 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.8 }}
-                                        transition={{ duration: 0.3 }}
-                                        whileHover={{ color: "red" }}
+                                        transition={{ duration: 0.1 }}
+                                    // whileHover={{ color: "red" }}
                                     >
                                         {isMuted ? <IoVolumeMuteOutline /> : <VscUnmute />}
                                     </MotionIcon>
