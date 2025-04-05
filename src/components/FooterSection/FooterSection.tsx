@@ -127,7 +127,16 @@ const FooterSection: React.FC = () => {
             fontFamily={"'YekanBakh', sans-serif"}
             dir={"rtl"}
           >
-            تداِکس دانشگاه تهران - تمامی حقوق محفوظ است {new Date().getFullYear()} ©
+            تداِکس دانشگاه تهران
+          </Text>
+          <Text
+            textAlign="center"
+            fontSize={linkFontSize} mb="0.5rem"
+            fontWeight="bold"
+            fontFamily={"'YekanBakh', sans-serif"}
+            dir={"rtl"}
+          >
+             تمامی حقوق محفوظ است {new Date().getFullYear()} ©
           </Text>
           {/* <Text
             textAlign="center"
