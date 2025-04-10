@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useBreakpointValue } from "@chakra-ui/react";
+// import { useBreakpointValue } from "@chakra-ui/react";
 import Player from '@vimeo/player';
-import HeroSection from "../components/HeroSection";
+// import HeroSection from "../components/HeroSection";
 import MyNavbar from "../components/MyNavbar";
 import InfoSection from "../components/InfoSection";
-import FormSection from "../components/FormSection";
+// import FormSection from "../components/FormSection";
 import EventGallery from "../components/EventGallery";
 import FeatureCardGrid from "../components/FeatureCardGrid";
-import LectureVideoSection from "../components/LectureVideoSection";
-import VideoGallery from "../components/VideoGallery";
+// import LectureVideoSection from "../components/LectureVideoSection";
+// import VideoGallery from "../components/VideoGallery";
 import ScrollingLink from "../components/ScrollingLink/ScrollingLink";
-import SliderImage from "../components/SliderImage";
+// import SliderImage from "../components/SliderImage";
 
 import FooterSection from "../components/FooterSection";
 
@@ -65,7 +65,7 @@ const HomePage: React.FC = () => {
         {/* <SliderImage /> */}
         {/* ---------------------------------------- */}
 
-        <FormSection />
+        {/* <FormSection /> */}
         <FooterSection />
       </motion.div>
     </>
